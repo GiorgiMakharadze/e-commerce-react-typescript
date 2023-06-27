@@ -1,11 +1,14 @@
 import { FaShoppingCart, FaUserPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import productsStore from "../store/store";
 import Wrapper from "../assets/wrappers/CartButtons";
 
 const CartButtons = () => {
+  const { closeSidebar } = productsStore();
+
   return (
     <Wrapper className="cart-btn-wrapper">
-      <Link to="/cart" className="cart-btn">
+      <Link to="/cart" className="cart-btn" onClick={closeSidebar}>
         Cart
         <span className="cart-container">
           <FaShoppingCart />

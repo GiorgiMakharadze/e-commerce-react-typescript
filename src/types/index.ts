@@ -1,5 +1,4 @@
 import { IPrivateRouteProps } from "./PrivateRouteTypes";
-import { IActionProps } from "./ReducerTypes";
-import { IContextStateProps } from "./ContextTypes";
+import { IProductStoreProps } from "./ProductsStoreTypes";
 
-export type { IPrivateRouteProps, IActionProps, IContextStateProps };
+export type { IPrivateRouteProps, IProductStoreProps };

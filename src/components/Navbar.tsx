@@ -1,11 +1,14 @@
 import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { links } from "../utils/constants";
+import productsStore from "../store/store";
 import logo from "../assets/logo.svg";
 import CartButtons from "./CartButtons";
 import NavContainer from "../assets/wrappers/NavBar";
 
 const Nav = () => {
+  const { openSidebar } = productsStore();
+
   return (
     <NavContainer>
       <div className="nav-center">
@@ -13,7 +16,7 @@ const Nav = () => {
           <Link to="/">
             <img src={logo} alt="comfy sloth logo" />
           </Link>
-          <button type="button" className="nav-toggle">
+          <button type="button" className="nav-toggle" onClick={openSidebar}>
             <FaBars />
           </button>
         </div>
