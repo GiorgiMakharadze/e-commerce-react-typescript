@@ -25,9 +25,9 @@ const Wrapper = styled.div`
     }
   }
   .cart-value {
-    position: absolute;
+    /* position: absolute;
     top: -10px;
-    right: -16px;
+    right: -16px; */
     background: var(--clr-primary-5);
     width: 16px;
     height: 16px;
