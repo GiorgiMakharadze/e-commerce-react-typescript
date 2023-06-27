@@ -1,4 +1,13 @@
+import { Contact, FeaturedProducts, Hero, Services } from "../components";
+
 const HomePage = () => {
-  return <h4>Home page</h4>;
+  return (
+    <main>
+      <Hero />
+      <FeaturedProducts />
+      <Services />
+      <Contact />
+    </main>
+  );
 };
 export default HomePage;
