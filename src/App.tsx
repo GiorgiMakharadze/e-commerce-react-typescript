@@ -5,8 +5,8 @@ import {
   Products,
   SingleProduct,
   About,
-  Cart,
   Error,
+  Cart,
   Checkout,
   PrivateRoute,
 } from "./pages";

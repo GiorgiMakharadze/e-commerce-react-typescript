@@ -16,7 +16,7 @@ const handleError = (
 const productsStore = create<IProductStoreProps>((set) => ({
   loading: false,
   error: null,
-  isSidebarOpen: true,
+  isSidebarOpen: false,
 
   openSidebar: () => {
     try {
