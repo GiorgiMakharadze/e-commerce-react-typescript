@@ -1,6 +1,63 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import {
+  Home,
+  Products,
+  SingleProduct,
+  About,
+  Cart,
+  Error,
+  Checkout,
+  PrivateRoute,
+} from "./pages";
+import { Navbar, Sidebar, Footer } from "./components";
 
-const router = createBrowserRouter([]);
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <>
+        <Navbar />
+        <Sidebar />
+        <Home />
+        <Footer />
+      </>
+    ),
+    errorElement: <Error />,
+  },
+  {
+    path: "about",
+    element: <About />,
+    errorElement: <Error />,
+  },
+  {
+    path: "cart",
+    element: <Cart />,
+    errorElement: <Error />,
+  },
+  {
+    path: "products",
+    element: <Products />,
+    errorElement: <Error />,
+  },
+  {
+    path: "products/:id",
+    element: <SingleProduct />,
+    errorElement: <Error />,
+  },
+  {
+    path: "checkout",
+    element: (
+      <PrivateRoute>
+        <Checkout />
+      </PrivateRoute>
+    ),
+    errorElement: <Error />,
+  },
+  {
+    path: "*",
+    element: <Error />,
+  },
+]);
 
 const App = () => <RouterProvider router={router} />;
 
