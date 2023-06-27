@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
-import NavContainer from "../assets/wrappers/NavBar";
 import { links } from "../utils/constants";
 import logo from "../assets/logo.svg";
+import CartButtons from "./CartButtons";
+import NavContainer from "../assets/wrappers/NavBar";
 
 const Nav = () => {
   return (
@@ -26,6 +27,7 @@ const Nav = () => {
             );
           })}
         </ul>
+        <CartButtons />
       </div>
     </NavContainer>
   );
