@@ -1,4 +1,5 @@
-import Home from "./HomePage";
+import HomeLayout from "./HomeLayout";
+import HomePage from "./HomePage";
 import Products from "./ProductsPage";
 import SingleProduct from "./SingleProductPage";
 import About from "./AboutPage";
@@ -8,7 +9,8 @@ import Checkout from "./CheckoutPage";
 import PrivateRoute from "./PrivateRoute";
 
 export {
-  Home,
+  HomeLayout,
+  HomePage,
   Products,
   SingleProduct,
   About,

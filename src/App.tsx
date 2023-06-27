@@ -1,6 +1,7 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import {
-  Home,
+  HomeLayout,
+  HomePage,
   Products,
   SingleProduct,
   About,
@@ -9,53 +10,52 @@ import {
   Checkout,
   PrivateRoute,
 } from "./pages";
-import { Navbar, Sidebar, Footer } from "./components";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-      <>
-        <Navbar />
-        <Sidebar />
-        <Home />
-        <Footer />
-      </>
-    ),
+    element: <HomeLayout />,
     errorElement: <Error />,
-  },
-  {
-    path: "about",
-    element: <About />,
-    errorElement: <Error />,
-  },
-  {
-    path: "cart",
-    element: <Cart />,
-    errorElement: <Error />,
-  },
-  {
-    path: "products",
-    element: <Products />,
-    errorElement: <Error />,
-  },
-  {
-    path: "products/:id",
-    element: <SingleProduct />,
-    errorElement: <Error />,
-  },
-  {
-    path: "checkout",
-    element: (
-      <PrivateRoute>
-        <Checkout />
-      </PrivateRoute>
-    ),
-    errorElement: <Error />,
-  },
-  {
-    path: "*",
-    element: <Error />,
+    children: [
+      {
+        index: true,
+        element: <HomePage />,
+        errorElement: <Error />,
+      },
+      {
+        path: "about",
+        element: <About />,
+        errorElement: <Error />,
+      },
+      {
+        path: "cart",
+        element: <Cart />,
+        errorElement: <Error />,
+      },
+      {
+        path: "products",
+        element: <Products />,
+        errorElement: <Error />,
+      },
+      {
+        path: "products/:id",
+        element: <SingleProduct />,
+        errorElement: <Error />,
+      },
+      {
+        path: "checkout",
+        element: (
+          <PrivateRoute>
+            <Checkout />
+          </PrivateRoute>
+        ),
+        errorElement: <Error />,
+      },
+      {
+        path: "*",
+        element: <Error />,
+      },
+    ],
   },
 ]);
 
