@@ -1,14 +1,17 @@
 import { useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import productsStore from "../store/ProductStore";
-import Loading from "../components/Loading";
-import Error from "../components/Error";
+import {
+  Loading,
+  Error,
+  PageHero,
+  ProductImages,
+  Stars,
+  AddToCart,
+} from "../components";
 import Wrapper from "../assets/wrappers/SingleProducts";
-import { PageHero } from "../components";
-import ProductImages from "../components/ProductImages";
-import Stars from "../components/Stars";
+
 import { formatPrice } from "../utils/helpers";
-import AddToCart from "../components/AddToCart";
 
 const SingleProductPage = () => {
   const { id } = useParams();
@@ -62,7 +65,7 @@ const SingleProductPage = () => {
             <ProductImages images={images} />
             <section className="content">
               <h2>{name}</h2>
-              <Stars />
+              <Stars stars={stars} reviews={reviews} />
               <h5 className="price">{formatPrice(price)}</h5>
               <p className="desc">{description}</p>
               <p className="info">
@@ -78,7 +81,7 @@ const SingleProductPage = () => {
                 {company}
               </p>
               <hr />
-              {stock > 0 && <AddToCart />}
+              {stock > 0 && <AddToCart single_product={single_product} />}
             </section>
           </div>
         </div>
