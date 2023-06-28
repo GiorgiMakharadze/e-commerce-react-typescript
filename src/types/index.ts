@@ -1,4 +1,4 @@
 import { IPrivateRouteProps } from "./PrivateRouteTypes";
-import { IProductStoreProps } from "./ProductsStoreTypes";
+import { IProductStoreProps, IProduct } from "./ProductsStoreTypes";
 
-export type { IPrivateRouteProps, IProductStoreProps };
+export type { IPrivateRouteProps, IProductStoreProps, IProduct };

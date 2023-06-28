@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { links } from "../utils/constants";
-import productsStore from "../store/store";
+import productsStore from "../store/ProductStore";
 import logo from "../assets/logo.svg";
 import CartButtons from "./CartButtons";
 import NavContainer from "../assets/wrappers/NavBar";

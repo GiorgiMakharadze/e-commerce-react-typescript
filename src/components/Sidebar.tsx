@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { FaTimes } from "react-icons/fa";
 import { links } from "../utils/constants";
-import productsStore from "../store/store";
+import productsStore from "../store/ProductStore";
 
 import SidebarContainer from "../assets/wrappers/SidebarContainer";
 import logo from "../assets/logo.svg";

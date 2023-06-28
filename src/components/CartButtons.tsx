@@ -1,6 +1,6 @@
 import { FaShoppingCart, FaUserPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import productsStore from "../store/store";
+import productsStore from "../store/ProductStore";
 import Wrapper from "../assets/wrappers/CartButtons";
 
 const CartButtons = () => {
