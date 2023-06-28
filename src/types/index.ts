@@ -4,7 +4,7 @@ import {
   IProduct,
   IProductImagesProps,
 } from "./ProductsStoreTypes";
-import { IFilterStoreProps } from "./FilterStoret";
+import { IFilterStoreProps } from "./FilterStoreTypest";
 import { IAmountButtonsProps } from "./AmountButtonsTypes";
 
 export type {

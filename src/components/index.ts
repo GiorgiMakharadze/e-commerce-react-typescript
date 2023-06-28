@@ -14,6 +14,9 @@ import Sidebar from "./Sidebar";
 import Services from "./Services";
 import Stars from "./Stars";
 import AmountButtons from "./AmountButtons";
+import Filters from "./Filters";
+import ProductList from "./ProductList";
+import Sort from "./Sort";
 
 export {
   Navbar,
@@ -32,4 +35,7 @@ export {
   Product,
   ProductImages,
   AmountButtons,
+  Filters,
+  ProductList,
+  Sort,
 };
