@@ -14,6 +14,7 @@ export interface IProduct {
 export interface IProductStoreProps {
   products: IProduct[];
   featured_products: IProduct[];
+  single_product: IProduct | {};
   loading: boolean;
   error: string | null;
   isSidebarOpen: boolean;
@@ -21,4 +22,5 @@ export interface IProductStoreProps {
   closeSidebar: () => void;
   fetchProducts: () => Promise<void>;
   fetchFeaturedProduct: () => Promise<void>;
+  fetchSingleProduct: (id: string) => Promise<void>;
 }

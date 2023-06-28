@@ -38,6 +38,7 @@ const handleError = (
 const productsStore = create<IProductStoreProps>((set) => ({
   products: [],
   featured_products: [],
+  single_product: {},
   loading: false,
   error: null,
   isSidebarOpen: false,
@@ -59,9 +60,7 @@ const productsStore = create<IProductStoreProps>((set) => ({
   fetchProducts: async () => {
     try {
       set({ loading: true });
-
       const response = await dataFetch.get(url);
-
       set({
         products: response.data,
         error: null,
@@ -82,6 +81,22 @@ const productsStore = create<IProductStoreProps>((set) => ({
 
       set({
         featured_products: featuredProduct,
+        error: null,
+      });
+    } catch (error: Error | any) {
+      handleError(error, set);
+    } finally {
+      set({ loading: false });
+    }
+  },
+  fetchSingleProduct: async (id: string | number) => {
+    try {
+      set({ loading: true });
+      const response = await dataFetch.get(`${url2}${id}`);
+      const singleProduct = response.data;
+
+      set({
+        single_product: singleProduct,
         error: null,
       });
     } catch (error: Error | any) {

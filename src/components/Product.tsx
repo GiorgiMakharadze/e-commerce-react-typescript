@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
+import { formatPrice } from "../utils/helpers";
 import { IProduct } from "../types";
 import Wrapper from "../assets/wrappers/Product";
 
@@ -14,7 +15,7 @@ const Product = ({ image, name, price, id }: IProduct) => {
       </div>
       <footer>
         <h5>{name}</h5>
-        <p>{price}</p>
+        <p>{formatPrice(price)}</p>
       </footer>
     </Wrapper>
   );
