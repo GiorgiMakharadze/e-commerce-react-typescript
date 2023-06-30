@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { links } from "../utils/constants";
-import productsStore from "../store/ProductStore";
 import logo from "../assets/logo.svg";
 import CartButtons from "./CartButtons";
 import NavContainer from "../assets/wrappers/NavBar";
+import { useProductsContext } from "../context/products_context";
 
 const Nav = () => {
-  const { openSidebar } = productsStore();
+  const { openSidebar } = useProductsContext();
 
   return (
     <NavContainer>

@@ -1,17 +1,17 @@
 import { IPrivateRouteProps } from "./PrivateRouteTypes";
 import {
-  IProductStoreProps,
+  IProductContextProps,
   IProduct,
   IProductImagesProps,
-} from "./ProductsStoreTypes";
-import { IFilterStoreProps } from "./FilterStoreTypest";
+} from "./ProductsContextTypes";
 import { IAmountButtonsProps } from "./AmountButtonsTypes";
+import { IActionProps } from "./ReducerTypes";
 
 export type {
   IPrivateRouteProps,
-  IProductStoreProps,
+  IProductContextProps,
   IProduct,
   IProductImagesProps,
   IAmountButtonsProps,
-  IFilterStoreProps,
+  IActionProps,
 };

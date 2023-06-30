@@ -5,8 +5,8 @@ import Wrapper from "../assets/wrappers/AddToCart";
 import AmountButtons from "./AmountButtons";
 import { IProduct } from "../types";
 
-const AddToCart = ({ single_product }: { single_product: IProduct }) => {
-  const { id, stock, colors } = single_product;
+const AddToCart = ({ product }: { product: IProduct }) => {
+  const { id, stock, colors } = product;
   const [mainColor, setMainColor] = useState(colors[0]);
   const [amount, setAmount] = useState(1);
 

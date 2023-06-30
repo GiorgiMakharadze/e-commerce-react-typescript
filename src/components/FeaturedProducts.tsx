@@ -1,18 +1,15 @@
-import { useEffect } from "react";
-import productsStore from "../store/ProductStore";
 import Wrapper from "../assets/wrappers/FeaturedProducts";
 import Loading from "./Loading";
 import Error from "./Error";
 import Product from "./Product";
+import { useProductsContext } from "../context/products_context";
 
 const FeaturedProducts = () => {
-  const { loading, error, fetchFeaturedProduct, featured_products } =
-    productsStore();
-
-  useEffect(() => {
-    fetchFeaturedProduct();
-  }, [fetchFeaturedProduct]);
-  console.log(featured_products);
+  const {
+    products_loading: loading,
+    products_error: error,
+    featured_products: featured,
+  } = useProductsContext();
 
   if (loading) {
     return <Loading />;
@@ -28,7 +25,7 @@ const FeaturedProducts = () => {
         <div className="underline"></div>
       </div>
       <div className="section-center featured">
-        {featured_products.map((product) => {
+        {featured.map((product) => {
           return <Product key={product.id} {...product} />;
         })}
       </div>

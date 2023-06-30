@@ -1,5 +1,10 @@
+import { GridView, ListView } from ".";
+import { useProductsContext } from "../context/products_context";
 const ProductList = () => {
-  return <h4>product list</h4>;
+  const { filtered_products: products } = useProductsContext();
+  console.log(products);
+
+  return <GridView products={products}>product list</GridView>;
 };
 
 export default ProductList;

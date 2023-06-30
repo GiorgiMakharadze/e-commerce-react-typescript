@@ -1,7 +1,6 @@
-import { FC } from "react";
 import { IPrivateRouteProps } from "../types";
 
-const PrivateRoute: FC<IPrivateRouteProps> = ({ children }) => {
+const PrivateRoute = ({ children }: IPrivateRouteProps) => {
   return <>{children}</>;
 };
 

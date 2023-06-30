@@ -1,10 +1,10 @@
 import { FaShoppingCart, FaUserPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import productsStore from "../store/ProductStore";
 import Wrapper from "../assets/wrappers/CartButtons";
+import { useProductsContext } from "../context/products_context";
 
 const CartButtons = () => {
-  const { closeSidebar } = productsStore();
+  const { closeSidebar } = useProductsContext();
 
   return (
     <Wrapper className="cart-btn-wrapper">

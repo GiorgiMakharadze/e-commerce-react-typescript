@@ -1,14 +1,13 @@
 import { Link } from "react-router-dom";
 import { FaTimes } from "react-icons/fa";
 import { links } from "../utils/constants";
-import productsStore from "../store/ProductStore";
-
 import SidebarContainer from "../assets/wrappers/SidebarContainer";
 import logo from "../assets/logo.svg";
 import CartButtons from "./CartButtons";
+import { useProductsContext } from "../context/products_context";
 
 const Sidebar = () => {
-  const { isSidebarOpen, closeSidebar } = productsStore();
+  const { isSidebarOpen, closeSidebar } = useProductsContext();
 
   return (
     <SidebarContainer>

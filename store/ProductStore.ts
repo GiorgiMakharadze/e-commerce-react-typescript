@@ -39,6 +39,8 @@ const productsStore = create<IProductStoreProps>((set) => ({
   products: [],
   featured_products: [],
   single_product: {},
+  filtered_products: [],
+  all_products: [],
   loading: false,
   error: null,
   isSidebarOpen: false,
@@ -105,6 +107,7 @@ const productsStore = create<IProductStoreProps>((set) => ({
       set({ loading: false });
     }
   },
+  
 }));
 
 export default productsStore;
