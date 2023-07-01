@@ -43,7 +43,7 @@ export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     dispatch({ type: FILTER_PRODUCTS });
     dispatch({ type: SORT_PRODUCTS });
-  }, [products, state.sort]);
+  }, [products, state.sort, state.filters]);
 
   const setGridView = () => {
     dispatch({ type: SET_GRIDVIEW });
@@ -59,11 +59,18 @@ export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
 
   const updateFilters = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const name = e.target.name;
-    const value = e.target.value;
+    let value: string | number = e.target.value;
+    if (name === "category") {
+      value = e.target.textContent ?? "";
+    }
+    if (name === "color") {
+      value = e.target.dataset.color ?? "";
+    }
+    if (name === "price") {
+      value = Number(value) ?? null;
+    }
     dispatch({ type: UPDATE_FILTERS, payload: { name, value } });
   };
-
-  const clearFilters = () => {};
 
   return (
     <FilterContext.Provider
@@ -73,7 +80,6 @@ export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
         setListView,
         updateSort,
         updateFilters,
-        clearFilters,
       }}
     >
       {children}

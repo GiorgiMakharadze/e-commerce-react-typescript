@@ -38,12 +38,6 @@ export interface IProductImagesProps {
   images?: Image[];
 }
 
-export interface IFilterContextProps extends IProductContextProps {
-  updateFilters?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  clearFilters?: () => void;
-  all_products?: IProduct[];
-}
-
 export interface IProductContextProps {
   products?: IProduct[];
   featured_products?: IProduct[];
@@ -72,7 +66,7 @@ export interface IProductContextProps {
   setGridView?: () => void;
   setListView?: () => void;
   updateSort?: () => void;
-  updateFilters?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  updateFilters?: (e: any) => void;
   fetchProducts?: (url: string) => Promise<void>;
   fetchFeaturedProduct?: () => Promise<void>;
   fetchSingleProduct?: (id: string) => Promise<void>;

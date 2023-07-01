@@ -12,9 +12,8 @@ import {
   GET_SINGLE_PRODUCT_SUCCESS,
   GET_SINGLE_PRODUCT_ERROR,
 } from "./actions";
-import { IProductContextProps } from "../types/ProductsContextTypes";
 
-const initialState: IProductContextProps = {
+const initialState = {
   isSidebarOpen: false,
   products_loading: false,
   products_error: false,
