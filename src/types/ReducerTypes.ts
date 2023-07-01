@@ -7,7 +7,16 @@ import {
   GET_SINGLE_PRODUCT_BEGIN,
   GET_SINGLE_PRODUCT_SUCCESS,
   GET_SINGLE_PRODUCT_ERROR,
+  LOAD_PRODUCTS,
+  SET_LISTVIEW,
+  SET_GRIDVIEW,
+  UPDATE_SORT,
+  SORT_PRODUCTS,
+  UPDATE_FILTERS,
+  FILTER_PRODUCTS,
+  CLEAR_FILTERS,
 } from "../context/actions";
+import { IProduct } from ".";
 
 export interface ISidebarOpen {
   type: typeof SIDEBAR_OPEN;
@@ -39,6 +48,31 @@ export interface IGetSingleProductError {
   type: typeof GET_SINGLE_PRODUCT_ERROR;
   payload?: any;
 }
+export interface ILoadProductsBegin {
+  type: typeof LOAD_PRODUCTS;
+  payload?: any;
+}
+export interface ISetListView {
+  type: typeof SET_LISTVIEW;
+}
+export interface ISetGridView {
+  type: typeof SET_GRIDVIEW;
+}
+export interface IUpdateSort {
+  type: typeof UPDATE_SORT;
+}
+export interface ISortProducts {
+  type: typeof SORT_PRODUCTS;
+}
+export interface IUpdateFilter {
+  type: typeof UPDATE_FILTERS;
+}
+export interface IFilterProducts {
+  type: typeof FILTER_PRODUCTS;
+}
+export interface IClearFilters {
+  type: typeof CLEAR_FILTERS;
+}
 
 export type IActionProps =
   | ISidebarOpen
@@ -48,4 +82,12 @@ export type IActionProps =
   | IGetProductsError
   | IGetSingleProductBegin
   | IGetSingleProductSuccess
-  | IGetSingleProductError;
+  | IGetSingleProductError
+  | ILoadProductsBegin
+  | ISetListView
+  | ISetGridView
+  | IUpdateSort
+  | ISortProducts
+  | IUpdateFilter
+  | IFilterProducts
+  | IClearFilters;

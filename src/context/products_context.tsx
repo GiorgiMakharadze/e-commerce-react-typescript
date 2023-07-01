@@ -23,7 +23,6 @@ const initialState: IProductContextProps = {
   single_product_loading: false,
   single_product_error: false,
   single_product: {},
-  filtered_products: [],
 };
 
 const ProductsContext = createContext(initialState);
