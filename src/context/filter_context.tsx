@@ -21,15 +21,14 @@ const initialState: IProductContextProps = {
   filters: {
     text: "",
     company: "all",
+    category: "all",
     color: "all",
     min_price: 0,
     max_price: 0,
     price: 0,
     shipping: false,
-    category: "",
   },
 };
-
 const FilterContext = createContext(initialState);
 
 export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
