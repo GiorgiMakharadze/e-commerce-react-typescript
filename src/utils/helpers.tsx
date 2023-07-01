@@ -5,3 +5,11 @@ export const formatPrice = (number: string | number) => {
     currency: "USD",
   }).format(num / 100);
 };
+export const getUniqueValues = (data: [], type: string) => {
+  let unique = data.map((item) => item[type]);
+  if (type === "colors") {
+    unique = unique.flat();
+  }
+
+  return ["all", ...new Set(unique)];
+};

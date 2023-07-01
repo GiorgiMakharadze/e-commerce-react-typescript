@@ -21,12 +21,27 @@ export interface IProduct {
   stars: number;
   reviews: number;
   filtered_products?: IProduct[];
-
+  filters: {
+    text: string;
+    company: string;
+    category: string;
+    color: string;
+    min_price: number;
+    max_price: number;
+    price: number;
+    shipping: boolean;
+  };
   sort?: string;
 }
 
 export interface IProductImagesProps {
   images?: Image[];
+}
+
+export interface IFilterContextProps extends IProductContextProps {
+  updateFilters?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  clearFilters?: () => void;
+  all_products?: IProduct[];
 }
 
 export interface IProductContextProps {
@@ -42,11 +57,22 @@ export interface IProductContextProps {
   isSidebarOpen?: boolean;
   grid_view?: boolean;
   sort?: string;
+  filters: {
+    text: string;
+    company: string;
+    category: string;
+    color: string;
+    min_price: number;
+    max_price: number;
+    price: number;
+    shipping: boolean;
+  };
   openSidebar?: () => void;
   closeSidebar?: () => void;
   setGridView?: () => void;
   setListView?: () => void;
   updateSort?: () => void;
+  updateFilters?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   fetchProducts?: (url: string) => Promise<void>;
   fetchFeaturedProduct?: () => Promise<void>;
   fetchSingleProduct?: (id: string) => Promise<void>;

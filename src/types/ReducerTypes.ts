@@ -71,7 +71,6 @@ export interface IUpdateFilter {
 }
 export interface IFilterProducts {
   type: typeof FILTER_PRODUCTS;
-  payload: any;
 }
 export interface IClearFilters {
   type: typeof CLEAR_FILTERS;

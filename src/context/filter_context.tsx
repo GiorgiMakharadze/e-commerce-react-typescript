@@ -13,11 +13,21 @@ import {
 import { useProductsContext } from "./products_context";
 import { IProductContextProps } from "../types";
 
-const initialState: any = {
+const initialState: IProductContextProps = {
   filtered_products: [],
   all_products: [],
   grid_view: true,
   sort: "price-lowest",
+  filters: {
+    text: "",
+    company: "all",
+    color: "all",
+    min_price: 0,
+    max_price: 0,
+    price: 0,
+    shipping: false,
+    category: "",
+  },
 };
 
 const FilterContext = createContext(initialState);
@@ -31,6 +41,7 @@ export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
   }, [products]);
 
   useEffect(() => {
+    dispatch({ type: FILTER_PRODUCTS });
     dispatch({ type: SORT_PRODUCTS });
   }, [products, state.sort]);
 
@@ -46,9 +57,24 @@ export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
     dispatch({ type: UPDATE_SORT, payload: value });
   };
 
+  const updateFilters = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    dispatch({ type: UPDATE_FILTERS, payload: { name, value } });
+  };
+
+  const clearFilters = () => {};
+
   return (
     <FilterContext.Provider
-      value={{ ...state, setGridView, setListView, updateSort }}
+      value={{
+        ...state,
+        setGridView,
+        setListView,
+        updateSort,
+        updateFilters,
+        clearFilters,
+      }}
     >
       {children}
     </FilterContext.Provider>

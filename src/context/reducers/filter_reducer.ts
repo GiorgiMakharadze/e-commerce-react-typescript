@@ -10,12 +10,20 @@ import {
 } from "../actions";
 import { IActionProps, IProduct } from "../../types";
 
-const filter_reducer = (state: IProduct, action: IActionProps) => {
+const filter_reducer = (state: any, action: IActionProps) => {
   if (action.type === LOAD_PRODUCTS) {
+    let maxPrice = action.payload.map((p: IProduct) => p.price);
+    maxPrice = Math.max(...maxPrice);
+
     return {
       ...state,
       all_products: [...action.payload],
       filtered_products: [...action.payload],
+      filters: {
+        ...state.filters,
+        max_price: maxPrice,
+        price: maxPrice,
+      },
     };
   }
   if (action.type === SET_GRIDVIEW) {
@@ -55,6 +63,15 @@ const filter_reducer = (state: IProduct, action: IActionProps) => {
       });
     }
     return { ...state, filtered_products: tempProducts };
+  }
+  if (action.type === UPDATE_FILTERS) {
+    const { name, value } = action.payload;
+    return { ...state, filters: { ...state.filters, [name]: value } };
+  }
+  if (action.type === FILTER_PRODUCTS) {
+    console.log("filtering products");
+
+    return { ...state };
   }
   throw new Error(`No Matching "${action.type}" - action type`);
 };
