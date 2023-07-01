@@ -17,6 +17,7 @@ const Filters = () => {
       shipping,
     },
     updateFilters,
+    clearFilters,
     all_products,
   } = useFilterContext();
 
@@ -127,7 +128,20 @@ const Filters = () => {
               value={price}
             />
           </div>
+          <div className="form-control shipping">
+            <label htmlFor="shipping">free shipping</label>
+            <input
+              type="checkbox"
+              name="shipping"
+              id="shipping"
+              checked={shipping}
+              onChange={updateFilters}
+            />
+          </div>
         </Form>
+        <button type="button" className="clear-btn" onClick={clearFilters}>
+          clear filters
+        </button>
       </div>
     </Wrapper>
   );

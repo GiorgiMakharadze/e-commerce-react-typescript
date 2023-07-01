@@ -67,6 +67,7 @@ export interface IProductContextProps {
   setListView?: () => void;
   updateSort?: () => void;
   updateFilters?: (e: any) => void;
+  clearFilters?: (e: any) => void;
   fetchProducts?: (url: string) => Promise<void>;
   fetchFeaturedProduct?: () => Promise<void>;
   fetchSingleProduct?: (id: string) => Promise<void>;

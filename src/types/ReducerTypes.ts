@@ -74,7 +74,6 @@ export interface IFilterProducts {
 }
 export interface IClearFilters {
   type: typeof CLEAR_FILTERS;
-  payload: any;
 }
 
 export type IActionProps =

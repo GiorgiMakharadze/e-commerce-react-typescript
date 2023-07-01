@@ -57,9 +57,11 @@ export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
     dispatch({ type: UPDATE_SORT, payload: value });
   };
 
-  const updateFilters = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const updateFilters = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const name = e.target.name;
-    let value: string | number = e.target.value;
+    let value: string | number | boolean = e.target.value;
     if (name === "category") {
       value = e.target.textContent ?? "";
     }
@@ -69,7 +71,14 @@ export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
     if (name === "price") {
       value = Number(value) ?? null;
     }
+    if (name === "shipping") {
+      value = (e.target as HTMLInputElement).checked;
+    }
     dispatch({ type: UPDATE_FILTERS, payload: { name, value } });
+  };
+
+  const clearFilters = () => {
+    dispatch({ type: CLEAR_FILTERS });
   };
 
   return (
@@ -80,6 +89,7 @@ export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
         setListView,
         updateSort,
         updateFilters,
+        clearFilters,
       }}
     >
       {children}

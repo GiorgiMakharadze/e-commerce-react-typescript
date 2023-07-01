@@ -70,8 +70,21 @@ const filter_reducer = (state: any, action: IActionProps) => {
   }
   if (action.type === FILTER_PRODUCTS) {
     console.log("filtering products");
-
     return { ...state };
+  }
+  if (action.type === CLEAR_FILTERS) {
+    return {
+      ...state,
+      filters: {
+        ...state.filters,
+        text: "",
+        company: "all",
+        color: "all",
+        price: state.filters.max_price,
+        shipping: false,
+        category: "",
+      },
+    };
   }
   throw new Error(`No Matching "${action.type}" - action type`);
 };
