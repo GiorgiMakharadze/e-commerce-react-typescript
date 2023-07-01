@@ -27,17 +27,21 @@ export interface IProductImagesProps {
 }
 
 export interface IProductContextProps {
-  products: IProduct[];
-  featured_products: IProduct[];
-  single_product: IProduct | {};
+  products?: IProduct[];
+  featured_products?: IProduct[];
+  single_product?: IProduct | {};
   filtered_products: IProduct[];
-  products_loading: boolean;
-  products_error: boolean;
-  single_product_loading: boolean;
-  single_product_error: boolean;
-  isSidebarOpen: boolean;
+  all_products: IProduct[];
+  products_loading?: boolean;
+  products_error?: boolean;
+  single_product_loading?: boolean;
+  single_product_error?: boolean;
+  isSidebarOpen?: boolean;
+  grid_view: boolean;
   openSidebar?: () => void;
   closeSidebar?: () => void;
+  setGridView?: () => void;
+  setListView?: () => void;
   fetchProducts?: (url: string) => Promise<void>;
   fetchFeaturedProduct?: () => Promise<void>;
   fetchSingleProduct?: (id: string) => Promise<void>;
