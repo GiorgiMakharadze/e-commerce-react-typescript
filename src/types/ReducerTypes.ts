@@ -60,18 +60,22 @@ export interface ISetGridView {
 }
 export interface IUpdateSort {
   type: typeof UPDATE_SORT;
+  payload: any;
 }
 export interface ISortProducts {
   type: typeof SORT_PRODUCTS;
 }
 export interface IUpdateFilter {
   type: typeof UPDATE_FILTERS;
+  payload: any;
 }
 export interface IFilterProducts {
   type: typeof FILTER_PRODUCTS;
+  payload: any;
 }
 export interface IClearFilters {
   type: typeof CLEAR_FILTERS;
+  payload: any;
 }
 
 export type IActionProps =

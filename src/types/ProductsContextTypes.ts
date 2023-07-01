@@ -20,6 +20,9 @@ export interface IProduct {
   shipping: boolean;
   stars: number;
   reviews: number;
+  filtered_products?: IProduct[];
+
+  sort?: string;
 }
 
 export interface IProductImagesProps {
@@ -30,18 +33,20 @@ export interface IProductContextProps {
   products?: IProduct[];
   featured_products?: IProduct[];
   single_product?: IProduct | {};
-  filtered_products: IProduct[];
-  all_products: IProduct[];
+  filtered_products?: IProduct[];
+  all_products?: IProduct[];
   products_loading?: boolean;
   products_error?: boolean;
   single_product_loading?: boolean;
   single_product_error?: boolean;
   isSidebarOpen?: boolean;
-  grid_view: boolean;
+  grid_view?: boolean;
+  sort?: string;
   openSidebar?: () => void;
   closeSidebar?: () => void;
   setGridView?: () => void;
   setListView?: () => void;
+  updateSort?: () => void;
   fetchProducts?: (url: string) => Promise<void>;
   fetchFeaturedProduct?: () => Promise<void>;
   fetchSingleProduct?: (id: string) => Promise<void>;
