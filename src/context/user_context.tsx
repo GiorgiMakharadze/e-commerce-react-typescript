@@ -10,21 +10,13 @@ interface UserContextType {
 const UserContext = createContext<UserContextType>({});
 
 export const UserProvider = ({ children }: { children: React.ReactNode }) => {
-  const { isAuthenticated, loginWithRedirect, logout, user, isLoading } =
-    useAuth0();
+  const { loginWithRedirect, logout, user } = useAuth0();
 
   const [myUser, setMyUser] = useState<null | User | false>(null);
 
   useEffect(() => {
-    if (isAuthenticated) {
-      setMyUser(user || null);
-    } else {
-      setMyUser(false);
-    }
-    console.log("user", user);
-    console.log("isAuthenticated", isAuthenticated);
-    console.log("loginWithRedirect", loginWithRedirect);
-  }, [isAuthenticated]);
+    setMyUser(user || null);
+  }, [user]);
 
   return (
     <UserContext.Provider value={{ loginWithRedirect, logout, myUser }}>

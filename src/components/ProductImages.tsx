@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { IProductImagesProps } from "../types";
+import { IProductImagesProps, Image } from "../types";
 import Wrapper from "../assets/wrappers/ProductImages";
 
-const ProductImages = ({ images = [[]] }: IProductImagesProps) => {
-  const [main, setMain] = useState(images[0]);
+const ProductImages = ({ images = [] }: IProductImagesProps) => {
+  const [main, setMain] = useState<Image | null>(images[0] || null);
   return (
     <Wrapper>
-      <img src={main.url} alt="" className="main " />
+      <img src={main?.url} alt="" className="main " />
       <div className="gallery">
         {images.map((image, index) => {
           return (
@@ -14,7 +14,7 @@ const ProductImages = ({ images = [[]] }: IProductImagesProps) => {
               src={image.url}
               alt=""
               key={index}
-              className={`${image.url === main.url ? "active" : null}`}
+              className={`${image.url === main?.url ? "active" : null}`}
               onClick={() => setMain(images[index])}
             />
           );

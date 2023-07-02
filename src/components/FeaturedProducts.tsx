@@ -1,8 +1,9 @@
-import Wrapper from "../assets/wrappers/FeaturedProducts";
+import { Link } from "react-router-dom";
 import Loading from "./Loading";
 import Error from "./Error";
 import Product from "./Product";
 import { useProductsContext } from "../context/products_context";
+import Wrapper from "../assets/wrappers/FeaturedProducts";
 
 const FeaturedProducts = () => {
   const {
@@ -25,10 +26,13 @@ const FeaturedProducts = () => {
         <div className="underline"></div>
       </div>
       <div className="section-center featured">
-        {featured?.map((product) => {
+        {featured?.slice(0, 3).map((product) => {
           return <Product key={product.id} {...product} />;
         })}
       </div>
+      <Link to="/products" className="btn">
+        all products
+      </Link>
     </Wrapper>
   );
 };
