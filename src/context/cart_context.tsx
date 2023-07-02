@@ -39,8 +39,12 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     dispatch({ type: ADD_TO_CART, payload: { id, color, amount, product } });
   };
 
-  // const removeItem = (id: IProduct) => {};
-  // const toggleAmount = ({ id, value }: IProduct) => {};
+  const removeItem = (id: IProduct) => {
+    console.log(id);
+  };
+  const toggleAmount = ({ id, value }: IProduct) => {
+    console.log(id, value);
+  };
   const clearCart = () => {
     console.log("clear");
   };
@@ -50,7 +54,9 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   }, [state.cart]);
 
   return (
-    <CartContext.Provider value={{ ...state, addToCart, clearCart }}>
+    <CartContext.Provider
+      value={{ ...state, addToCart, removeItem, toggleAmount, clearCart }}
+    >
       {children}
     </CartContext.Provider>
   );

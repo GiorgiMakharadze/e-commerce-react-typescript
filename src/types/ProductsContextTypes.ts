@@ -35,6 +35,7 @@ export interface IProduct {
   min: number;
   max: number;
   sort?: string;
+  value: any;
 }
 
 export interface IProductImagesProps {
@@ -86,11 +87,14 @@ export interface IProductContextProps {
   ) => void;
 }
 
-interface ICartItem {
+export interface ICartItem {
   id: string;
   color: string;
+  name: string;
   amount: number;
   product: IProduct;
+  image?: string;
+  price?: number;
 }
 
 export interface ICartContextProps {
