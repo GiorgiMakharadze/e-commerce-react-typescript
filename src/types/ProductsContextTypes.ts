@@ -35,9 +35,6 @@ export interface IProduct {
   min: number;
   max: number;
   sort?: string;
-  color: string;
-  product: IProduct[];
-  value: any;
 }
 
 export interface IProductImagesProps {
@@ -67,17 +64,17 @@ export interface IProductContextProps {
     price: number;
     shipping: boolean;
   };
-  cart: any[];
-  total_items: number;
-  total_amount: number;
-  shipping_fee: number;
   openSidebar?: () => void;
   closeSidebar?: () => void;
   setGridView?: () => void;
   setListView?: () => void;
   updateSort?: () => void;
-  updateFilters?: (e: any) => void;
-  clearFilters?: (e: any) => void;
+  updateFilters?: (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => void;
+  clearFilters?: (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => void;
   fetchProducts?: (url: string) => Promise<void>;
   fetchFeaturedProduct?: () => Promise<void>;
   fetchSingleProduct?: (id: string) => Promise<void>;
@@ -89,8 +86,15 @@ export interface IProductContextProps {
   ) => void;
 }
 
+interface ICartItem {
+  id: string;
+  color: string;
+  amount: number;
+  product: IProduct;
+}
+
 export interface ICartContextProps {
-  cart: any[];
+  cart: ICartItem[];
   total_items: number;
   total_amount: number;
   shipping_fee: number;
