@@ -43,7 +43,7 @@ export interface IProductImagesProps {
 }
 
 export interface IProductContextProps {
-  products?: IProduct[];
+  products?: IProduct[] | any;
   featured_products?: IProduct[];
   single_product?: IProduct | {};
   filtered_products?: IProduct[];
