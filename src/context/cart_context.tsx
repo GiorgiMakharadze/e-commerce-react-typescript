@@ -40,16 +40,19 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   const removeItem = (id: IProduct) => {
-    console.log(id);
+    dispatch({ type: REMOVE_CART_ITEM, payload: id });
   };
-  const toggleAmount = ({ id, value }: IProduct) => {
+  const toggleAmount = (id: string, value: "inc" | "dec") => {
     console.log(id, value);
+
+    dispatch({ type: TOGGLE_CART_ITEM_AMOUNT, payload: { id, value } });
   };
   const clearCart = () => {
-    console.log("clear");
+    dispatch({ type: CLEAR_CART });
   };
 
   useEffect(() => {
+    dispatch({ type: COUNT_CART_TOTALS });
     localStorage.setItem("cart", JSON.stringify(state.cart));
   }, [state.cart]);
 

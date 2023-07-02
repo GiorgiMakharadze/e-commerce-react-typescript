@@ -84,6 +84,21 @@ export interface IAddToCart {
   type: typeof ADD_TO_CART;
   payload: any;
 }
+export interface IRemoveCartItem {
+  type: typeof REMOVE_CART_ITEM;
+  payload: any;
+}
+export interface IClearCart {
+  type: typeof CLEAR_CART;
+}
+
+export interface IToggleAmount {
+  type: typeof TOGGLE_CART_ITEM_AMOUNT;
+  payload: any;
+}
+export interface ICountCartTotals {
+  type: typeof COUNT_CART_TOTALS;
+}
 
 export type IActionProps =
   | ISidebarOpen
@@ -102,4 +117,8 @@ export type IActionProps =
   | IUpdateFilter
   | IFilterProducts
   | IClearFilters
-  | IAddToCart;
+  | IAddToCart
+  | IRemoveCartItem
+  | IClearCart
+  | IToggleAmount
+  | ICountCartTotals;

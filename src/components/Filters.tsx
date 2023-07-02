@@ -5,21 +5,20 @@ import { getUniqueValues, formatPrice } from "../utils/helpers";
 import { FaCheck } from "react-icons/fa";
 
 const Filters = () => {
+  const context = useFilterContext();
+
   const {
-    filters: {
-      text,
-      category,
-      company,
-      color,
-      min_price,
-      price,
-      max_price,
-      shipping,
-    },
-    updateFilters,
-    clearFilters,
-    all_products,
-  } = useFilterContext();
+    text,
+    category,
+    company,
+    color,
+    min_price = 0, // add default values
+    price = 0, // add default values
+    max_price = 0,
+    shipping,
+  } = context.filters || {};
+
+  const { updateFilters, clearFilters, all_products } = useFilterContext();
 
   const categories = getUniqueValues(all_products, "category");
   const companies = getUniqueValues(all_products, "company");

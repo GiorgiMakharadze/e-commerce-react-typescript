@@ -6,7 +6,7 @@ import {
 } from "./ProductsContextTypes";
 import { IAmountButtonsProps } from "./AmountButtonsTypes";
 import { IActionProps } from "./ReducerTypes";
-import { ICartContextProps, ICartItem } from "./ProductsContextTypes";
+import { ICartContextProps, ICartItem, ITotal } from "./ProductsContextTypes";
 
 export type {
   IPrivateRouteProps,
@@ -17,4 +17,5 @@ export type {
   IActionProps,
   ICartContextProps,
   ICartItem,
+  ITotal,
 };

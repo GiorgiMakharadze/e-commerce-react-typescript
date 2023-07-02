@@ -8,10 +8,10 @@ import { ICartItem } from "../types";
 const CartItem = ({ id, image, name, color, price, amount }: ICartItem) => {
   const { removeItem, toggleAmount } = useCartContext();
   const increase = () => {
-    console.log("+");
+    toggleAmount?.(id, "inc");
   };
   const decrease = () => {
-    console.log("-");
+    toggleAmount?.(id, "dec");
   };
 
   if (!price) return null;
@@ -36,7 +36,7 @@ const CartItem = ({ id, image, name, color, price, amount }: ICartItem) => {
       <button
         type="button"
         className="remove-btn"
-        onClick={() => removeItem(id)}
+        onClick={() => removeItem?.(id)}
       >
         <FaTrash />
       </button>

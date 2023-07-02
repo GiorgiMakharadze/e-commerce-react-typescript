@@ -35,7 +35,7 @@ export interface IProduct {
   min: number;
   max: number;
   sort?: string;
-  value: any;
+  value: "inc" | "dec";
 }
 
 export interface IProductImagesProps {
@@ -55,7 +55,7 @@ export interface IProductContextProps {
   isSidebarOpen?: boolean;
   grid_view?: boolean;
   sort?: string;
-  filters: {
+  filters?: {
     text: string;
     company: string;
     category: string;
@@ -70,21 +70,11 @@ export interface IProductContextProps {
   setGridView?: () => void;
   setListView?: () => void;
   updateSort?: () => void;
-  updateFilters?: (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => void;
-  clearFilters?: (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => void;
+  updateFilters?: (e: React.ChangeEvent<HTMLInputElement | any>) => void;
+  clearFilters?: (e: React.ChangeEvent<HTMLInputElement | any>) => void;
   fetchProducts?: (url: string) => Promise<void>;
   fetchFeaturedProduct?: () => Promise<void>;
   fetchSingleProduct?: (id: string) => Promise<void>;
-  addToCart?: (
-    id: string,
-    color: string,
-    amount: number,
-    product: IProduct
-  ) => void;
 }
 
 export interface ICartItem {
@@ -108,4 +98,12 @@ export interface ICartContextProps {
     amount: number,
     product: IProduct
   ) => void;
+  removeItem?: (id: string) => void;
+  toggleAmount?: (id: string, value: number) => void;
+  clearCart?: () => void;
+}
+
+export interface ITotal {
+  total_items: number;
+  total_amount: number;
 }
