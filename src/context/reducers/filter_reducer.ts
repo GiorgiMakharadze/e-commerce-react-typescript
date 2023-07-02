@@ -39,25 +39,21 @@ const filter_reducer = (state: any, action: IActionProps) => {
     const { sort, filtered_products } = state;
     let tempProducts = [...(state.filtered_products ?? [])];
     if (sort === "price-lowest") {
-      console.log("price lowest");
       tempProducts = tempProducts.sort((a, b) => {
         return a.price - b.price;
       });
     }
     if (sort === "price-highest") {
-      console.log("price-highest");
       tempProducts = tempProducts.sort((a, b) => {
         return b.price - a.price;
       });
     }
     if (sort === "name-a") {
-      console.log("name-a");
       tempProducts = tempProducts.sort((a, b) => {
         return a.name.localeCompare(b.name);
       });
     }
     if (sort === "name-z") {
-      console.log("name-z");
       tempProducts = tempProducts.sort((a, b) => {
         return b.name.localeCompare(a.name);
       });
