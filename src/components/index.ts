@@ -19,6 +19,7 @@ import ProductList from "./ProductList";
 import Sort from "./Sort";
 import GridView from "./GridView";
 import ListView from "./ListView";
+import StripeCheckout from "./StripeCheckout";
 
 export {
   Navbar,
@@ -42,4 +43,5 @@ export {
   Sort,
   GridView,
   ListView,
+  StripeCheckout,
 };

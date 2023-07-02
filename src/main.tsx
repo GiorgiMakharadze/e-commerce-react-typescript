@@ -11,8 +11,8 @@ import { UserProvider } from "./context/user_context.tsx";
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <Auth0Provider
-      domain="dev-hl81st48h1jq5wqi.eu.auth0.com"
-      clientId="XOuL087Yhcd4PVCkmV6z0RvuQUyB9zAq"
+      domain={import.meta.env.REACT_APP_AUTH_DOMAIN || ""}
+      clientId={import.meta.env.REACT_APP_CLIENT_ID || ""}
       authorizationParams={{
         redirect_uri: window.location.origin,
       }}

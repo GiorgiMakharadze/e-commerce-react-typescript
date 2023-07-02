@@ -13,6 +13,8 @@ import { formatPrice } from "../utils/helpers";
 import { useNavigate } from "react-router-dom";
 import Wrapper from "../assets/wrappers/StripeCheckout";
 
+const promise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY!);
+
 const CheckoutForm = () => {
   return <h4>hello from Stripe Checkout </h4>;
 };
@@ -20,7 +22,9 @@ const CheckoutForm = () => {
 const StripeCheckout = () => {
   return (
     <Wrapper>
-      <CheckoutForm />
+      <Elements stripe={promise}>
+        <CheckoutForm />
+      </Elements>
     </Wrapper>
   );
 };
