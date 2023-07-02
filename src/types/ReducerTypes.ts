@@ -15,6 +15,11 @@ import {
   UPDATE_FILTERS,
   FILTER_PRODUCTS,
   CLEAR_FILTERS,
+  ADD_TO_CART,
+  CLEAR_CART,
+  COUNT_CART_TOTALS,
+  REMOVE_CART_ITEM,
+  TOGGLE_CART_ITEM_AMOUNT,
 } from "../context/actions";
 import { IProduct } from ".";
 
@@ -75,6 +80,10 @@ export interface IFilterProducts {
 export interface IClearFilters {
   type: typeof CLEAR_FILTERS;
 }
+export interface IAddToCart {
+  type: typeof ADD_TO_CART;
+  payload: any;
+}
 
 export type IActionProps =
   | ISidebarOpen
@@ -92,4 +101,5 @@ export type IActionProps =
   | ISortProducts
   | IUpdateFilter
   | IFilterProducts
-  | IClearFilters;
+  | IClearFilters
+  | IAddToCart;

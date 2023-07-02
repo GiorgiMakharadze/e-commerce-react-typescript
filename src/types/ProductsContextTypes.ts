@@ -31,7 +31,13 @@ export interface IProduct {
     price: number;
     shipping: boolean;
   };
+  amount: number;
+  min: number;
+  max: number;
   sort?: string;
+  color: string;
+  product: IProduct[];
+  value: any;
 }
 
 export interface IProductImagesProps {
@@ -61,6 +67,10 @@ export interface IProductContextProps {
     price: number;
     shipping: boolean;
   };
+  cart: any[];
+  total_items: number;
+  total_amount: number;
+  shipping_fee: number;
   openSidebar?: () => void;
   closeSidebar?: () => void;
   setGridView?: () => void;
@@ -71,4 +81,23 @@ export interface IProductContextProps {
   fetchProducts?: (url: string) => Promise<void>;
   fetchFeaturedProduct?: () => Promise<void>;
   fetchSingleProduct?: (id: string) => Promise<void>;
+  addToCart?: (
+    id: string,
+    color: string,
+    amount: number,
+    product: IProduct
+  ) => void;
+}
+
+export interface ICartContextProps {
+  cart: any[];
+  total_items: number;
+  total_amount: number;
+  shipping_fee: number;
+  addToCart?: (
+    id: string,
+    color: string,
+    amount: number,
+    product: IProduct
+  ) => void;
 }
