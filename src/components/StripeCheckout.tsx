@@ -1,9 +1,5 @@
 import { useState, useEffect } from "react";
-import {
-  loadStripe,
-  StripeCardNumberElement,
-  StripeCardElementChangeEvent,
-} from "@stripe/stripe-js";
+import { loadStripe, StripeCardElementChangeEvent } from "@stripe/stripe-js";
 import {
   CardElement,
   useStripe,
