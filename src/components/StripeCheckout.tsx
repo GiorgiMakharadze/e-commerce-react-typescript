@@ -56,9 +56,8 @@ const CheckoutForm = () => {
   const handleSubmit = async (ev: React.FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
     setProcessing(true);
-    const cardElement = elements?.getElement(
-      "cardNumber"
-    ) as StripeCardNumberElement;
+    const cardElement = elements?.getElement(CardElement);
+
     if (stripe && clientSecret && cardElement) {
       const payload = await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
