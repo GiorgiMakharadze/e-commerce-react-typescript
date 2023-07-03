@@ -3,10 +3,10 @@ import { formatPrice } from "../utils/helpers";
 import { IProduct } from "../types";
 import { Link } from "react-router-dom";
 
-const ListView = ({ products }: { products: IProduct[] }) => {
+const ListView = ({ products }: { products?: IProduct[] }) => {
   return (
     <Wrapper>
-      {products.map((product) => {
+      {products?.map((product) => {
         const { id, image, name, price, description } = product;
         return (
           <article key={id}>

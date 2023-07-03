@@ -45,7 +45,7 @@ export interface IProductImagesProps {
 export interface IProductContextProps {
   products?: IProduct[] | any;
   featured_products?: IProduct[];
-  single_product?: IProduct | {};
+  single_product?: IProduct | object;
   filtered_products?: IProduct[];
   all_products?: IProduct[];
   products_loading?: boolean;
@@ -99,7 +99,7 @@ export interface ICartContextProps {
     product: IProduct
   ) => void;
   removeItem?: (id: string) => void;
-  toggleAmount?: (id: string, value: number) => void;
+  toggleAmount?: (id: string, value: string) => void;
   clearCart?: () => void;
 }
 

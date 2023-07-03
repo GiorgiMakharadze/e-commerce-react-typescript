@@ -3,7 +3,7 @@ import { useFilterContext } from "../context/filter_context";
 
 const ProductList = () => {
   const { filtered_products: products, grid_view } = useFilterContext();
-  if (products.length < 1) {
+  if (products && products.length < 1) {
     return (
       <h5 style={{ textTransform: "none" }}>
         Sorry, no Product matched your search...

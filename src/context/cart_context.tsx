@@ -43,8 +43,6 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     dispatch({ type: REMOVE_CART_ITEM, payload: id });
   };
   const toggleAmount = (id: string, value: "inc" | "dec") => {
-    console.log(id, value);
-
     dispatch({ type: TOGGLE_CART_ITEM_AMOUNT, payload: { id, value } });
   };
   const clearCart = () => {

@@ -82,7 +82,7 @@ const SingleProductPage = () => {
               {company}
             </p>
             <hr />
-            {stock > 0 && Object.keys(product).length > 0 && (
+            {stock > 0 && product && Object.keys(product).length > 0 && (
               <AddToCart product={product as IProduct} />
             )}
           </section>

@@ -7,13 +7,13 @@ const GridView = ({
   products,
 }: {
   children: React.ReactNode;
-  products: IProduct[];
+  products?: IProduct[];
 }) => {
   return (
     <Wrapper>
       {children}
       <div className="products-container">
-        {products.map((product) => {
+        {products?.map((product) => {
           return <Product key={product.id} {...product} />;
         })}
       </div>

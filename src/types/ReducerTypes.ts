@@ -21,7 +21,6 @@ import {
   REMOVE_CART_ITEM,
   TOGGLE_CART_ITEM_AMOUNT,
 } from "../context/actions";
-import { IProduct } from ".";
 
 export interface ISidebarOpen {
   type: typeof SIDEBAR_OPEN;
